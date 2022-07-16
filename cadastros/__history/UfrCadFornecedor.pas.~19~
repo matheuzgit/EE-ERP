@@ -58,7 +58,6 @@ type
     Editefone2: TEdit;
     Label15: TLabel;
     QryFornecedor: TADOQuery;
-    QryFornecedorCNPJ: TIntegerField;
     QryFornecedorNOMEFANTASIA: TStringField;
     QryFornecedorRAZAOSOCIAL: TStringField;
     QryFornecedorRUA: TStringField;
@@ -70,6 +69,8 @@ type
     QryFornecedorEMAIL: TStringField;
     QryFornecedorFIXO: TStringField;
     QryFornecedorMOVEL: TStringField;
+    QryFornecedorSegmento: TStringField;
+    QryFornecedorCNPJ: TBCDField;
     procedure BtnBuscarClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure SBtnSalvarClick(Sender: TObject);
@@ -82,6 +83,8 @@ type
 
 var
   FrmFornecedor: TFrmFornecedor;
+
+  cep, telefone: string;
 
 implementation
 
@@ -111,16 +114,18 @@ procedure TFrmFornecedor.Button1Click(Sender: TObject);
 var
   cnpj: TRootDTO;
   JSonValue : TJSonValue;
-  st : string;
-  Branch : string;
+  st, Branch : string;
+
 begin
   RESTClientCNPJ.BaseURL := 'https://www.receitaws.com.br/v1/cnpj/' + MEdtCnpj.Text;
   RESTRequestCNPJ.Execute;
   st := (RESTRequestCNPJ.Response.JSONText);
 
   JsonValue := TJSonObject.ParseJSONValue(st);
-
-  EdtNomeFantasia.Text := JsonValue.GetValue<string>('fantasia');
+  if JsonValue.GetValue<string>('fantasia') = '' then
+    EdtNomeFantasia.Text := JsonValue.GetValue<string>('nome')
+  else
+    EdtNomeFantasia.Text := JsonValue.GetValue<string>('fantasia');
   EdtRazaoSocial.Text := JsonValue.GetValue<string>('nome');
  // EdtSegmento.Text := JsonValue.GetValue<string>('atividade_principal');
   EdtComplemento.Text := JsonValue.GetValue<string>('complemento');
@@ -128,10 +133,12 @@ begin
   EdtNumero.Text := JsonValue.GetValue<string>('numero');
   EdtUf.Text := JsonValue.GetValue<string>('uf');
   EdtBairro.Text  :=  JsonValue.GetValue<string>('bairro');
-  MedtCep.Text := JsonValue.GetValue<string>('cep');
+  MedtCep.Text := Copy((JsonValue.GetValue<string>('cep')),1,2)+ Copy((JsonValue.GetValue<string>('cep')),4,3) +'-'+Copy((JsonValue.GetValue<string>('cep')),8,3);
+  cep := Copy((JsonValue.GetValue<string>('cep')),1,2)+ Copy((JsonValue.GetValue<string>('cep')),4,3)+Copy((JsonValue.GetValue<string>('cep')),8,3);
+  EdtCidade.Text := JsonValue.GetValue<string>('municipio');
   EdtEmail.Text := JsonValue.GetValue<string>('email');
-  Editefone1.Text := Copy((JsonValue.GetValue<string>('telefone')),2,3)+Copy((JsonValue.GetValue<string>('telefone')),6,9)+Copy((JsonValue.GetValue<string>('telefone')),11,14);
-  Editefone2.Text := Copy((JsonValue.GetValue<string>('telefone')),18,19)+Copy((JsonValue.GetValue<string>('telefone')),22,25)+Copy((JsonValue.GetValue<string>('telefone')),27,30);
+  Editefone1.Text := '('+Copy((JsonValue.GetValue<string>('telefone')),2,2)+')'+Copy((JsonValue.GetValue<string>('telefone')),6,4)+'-'+Copy((JsonValue.GetValue<string>('telefone')),11,4);
+  telefone := Copy((JsonValue.GetValue<string>('telefone')),2,2)+Copy((JsonValue.GetValue<string>('telefone')),6,4)+Copy((JsonValue.GetValue<string>('telefone')),11,4);
   JsonValue.Free;
 end;
 
@@ -143,7 +150,7 @@ end;
 
 procedure TFrmFornecedor.SBtnSalvarClick(Sender: TObject);
 var
-  Movel, Fixo, F1, F2, F3, M1, M2, M3: string;
+  Movel, Fixo: string;
 begin
   QryFornecedor.Close;
   QryFornecedor.open;
@@ -156,11 +163,8 @@ begin
   end;
 
 
-
-
   if (Editefone1.Text = '') AND (Editefone2.Text  = '') then
     raise Exception.Create('Informe Pelo menos Um Número de contato!!!');
-
   if MEdtCnpj.Text = '' then
     raise Exception.Create('Campo do CNPJ Obrigatótio!!!')
   else
@@ -211,8 +215,7 @@ begin
   if MedtCep.Text = '' then
     raise Exception.Create('Campo do Número do CEP Obrigatótio!!!')
   else
-    CmdCadFornecedor.Parameters.ParamByName('CEP').Value :=
-      StrToInt(MedtCep.Text);
+    CmdCadFornecedor.Parameters.ParamByName('CEP').Value := strtoint(cep);
 
   if EdtEmail.Text = '' then
     raise Exception.Create('Campo do Email Obrigatótio!!!')

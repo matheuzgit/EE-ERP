@@ -84,8 +84,6 @@ type
 var
   FrmFornecedor: TFrmFornecedor;
 
-  cep, telefone: string;
-
 implementation
 
 {$R *.dfm}
@@ -115,7 +113,6 @@ var
   cnpj: TRootDTO;
   JSonValue : TJSonValue;
   st, Branch : string;
-
 begin
   RESTClientCNPJ.BaseURL := 'https://www.receitaws.com.br/v1/cnpj/' + MEdtCnpj.Text;
   RESTRequestCNPJ.Execute;
@@ -133,12 +130,11 @@ begin
   EdtNumero.Text := JsonValue.GetValue<string>('numero');
   EdtUf.Text := JsonValue.GetValue<string>('uf');
   EdtBairro.Text  :=  JsonValue.GetValue<string>('bairro');
-  MedtCep.Text := Copy((JsonValue.GetValue<string>('cep')),1,2)+ Copy((JsonValue.GetValue<string>('cep')),4,3) +'-'+Copy((JsonValue.GetValue<string>('cep')),8,3);
-  cep := Copy((JsonValue.GetValue<string>('cep')),1,2)+ Copy((JsonValue.GetValue<string>('cep')),4,3)+Copy((JsonValue.GetValue<string>('cep')),8,3);
+  MedtCep.Text := JsonValue.GetValue<string>('cep');
   EdtCidade.Text := JsonValue.GetValue<string>('municipio');
   EdtEmail.Text := JsonValue.GetValue<string>('email');
-  Editefone1.Text := '('+Copy((JsonValue.GetValue<string>('telefone')),2,2)+')'+Copy((JsonValue.GetValue<string>('telefone')),6,4)+'-'+Copy((JsonValue.GetValue<string>('telefone')),11,4);
-  telefone := Copy((JsonValue.GetValue<string>('telefone')),2,2)+Copy((JsonValue.GetValue<string>('telefone')),6,4)+Copy((JsonValue.GetValue<string>('telefone')),11,4);
+  Editefone1.Text := Copy((JsonValue.GetValue<string>('telefone')),2,2)+Copy((JsonValue.GetValue<string>('telefone')),6,4)+Copy((JsonValue.GetValue<string>('telefone')),7,1);
+  Editefone2.Text := Copy((JsonValue.GetValue<string>('telefone')),18,19)+Copy((JsonValue.GetValue<string>('telefone')),22,25)+Copy((JsonValue.GetValue<string>('telefone')),27,30);
   JsonValue.Free;
 end;
 
@@ -164,14 +160,11 @@ begin
 
 
   if (Editefone1.Text = '') AND (Editefone2.Text  = '') then
-    raise Exception.Create('Informe Pelo menos Um Número de contato!!!')
-  else
-    CmdCadFornecedor.Parameters.ParamByName('FIXO').Value := strtoint(telefone);
-
+    raise Exception.Create('Informe Pelo menos Um Número de contato!!!');
   if MEdtCnpj.Text = '' then
     raise Exception.Create('Campo do CNPJ Obrigatótio!!!')
   else
-    CmdCadFornecedor.Parameters.ParamByName('FIXO').Value := MEdtCnpj.Text;
+    CmdCadFornecedor.Parameters.ParamByName('CNPJ').Value := MEdtCnpj.Text;
 
   if EdtNomeFantasia.Text = '' then
     raise Exception.Create('Campo do Nome Fantasia Obrigatótio!!!')
@@ -218,7 +211,8 @@ begin
   if MedtCep.Text = '' then
     raise Exception.Create('Campo do Número do CEP Obrigatótio!!!')
   else
-    CmdCadFornecedor.Parameters.ParamByName('CEP').Value := strtoint(cep);
+    CmdCadFornecedor.Parameters.ParamByName('CEP').Value :=
+      StrToInt(MedtCep.Text);
 
   if EdtEmail.Text = '' then
     raise Exception.Create('Campo do Email Obrigatótio!!!')
