@@ -58,7 +58,6 @@ type
     Editefone2: TEdit;
     Label15: TLabel;
     QryFornecedor: TADOQuery;
-    QryFornecedorCNPJ: TIntegerField;
     QryFornecedorNOMEFANTASIA: TStringField;
     QryFornecedorRAZAOSOCIAL: TStringField;
     QryFornecedorRUA: TStringField;
@@ -70,6 +69,8 @@ type
     QryFornecedorEMAIL: TStringField;
     QryFornecedorFIXO: TStringField;
     QryFornecedorMOVEL: TStringField;
+    QryFornecedorSegmento: TStringField;
+    QryFornecedorCNPJ: TBCDField;
     procedure BtnBuscarClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure SBtnSalvarClick(Sender: TObject);
@@ -111,8 +112,7 @@ procedure TFrmFornecedor.Button1Click(Sender: TObject);
 var
   cnpj: TRootDTO;
   JSonValue : TJSonValue;
-  st : string;
-  Branch : string;
+  st, Branch : string;
 begin
   RESTClientCNPJ.BaseURL := 'https://www.receitaws.com.br/v1/cnpj/' + MEdtCnpj.Text;
   RESTRequestCNPJ.Execute;
@@ -143,7 +143,7 @@ end;
 
 procedure TFrmFornecedor.SBtnSalvarClick(Sender: TObject);
 var
-  Movel, Fixo, F1, F2, F3, M1, M2, M3: string;
+  Movel, Fixo: string;
 begin
   QryFornecedor.Close;
   QryFornecedor.open;
@@ -156,11 +156,8 @@ begin
   end;
 
 
-
-
   if (Editefone1.Text = '') AND (Editefone2.Text  = '') then
     raise Exception.Create('Informe Pelo menos Um Número de contato!!!');
-
   if MEdtCnpj.Text = '' then
     raise Exception.Create('Campo do CNPJ Obrigatótio!!!')
   else

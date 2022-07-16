@@ -23,10 +23,8 @@ type
     Label6: TLabel;
     SpBtnPesquisar: TSpeedButton;
     QryFornecedor: TADOQuery;
-    QryFornecedorCNPJ: TStringField;
     QryFornecedorNOMEFANTASIA: TStringField;
     QryFornecedorRAZAOSOCIAL: TStringField;
-    QryFornecedorSEGMENTO: TStringField;
     QryFornecedorRUA: TStringField;
     QryFornecedorNUMERO: TIntegerField;
     QryFornecedorUF: TStringField;
@@ -60,8 +58,10 @@ type
     Label4: TLabel;
     QryUni: TADOQuery;
     DSUni: TDataSource;
-    QryUnicoduni: TStringField;
     QryUnidesuni: TStringField;
+    QryUnicoduni: TIntegerField;
+    QryFornecedorSegmento: TStringField;
+    QryFornecedorCNPJ: TBCDField;
     procedure SpBtnCancelarClick(Sender: TObject);
     procedure SpBtnSalvarClick(Sender: TObject);
     procedure SpBtnAdicionarClick(Sender: TObject);

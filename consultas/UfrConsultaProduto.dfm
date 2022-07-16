@@ -53,7 +53,7 @@ object FrmConsProduto: TFrmConsProduto
       end
       item
         Expanded = False
-        FieldName = 'UNIDADE'
+        FieldName = 'unidade'
         Title.Caption = 'Unidade'
         Visible = True
       end
@@ -71,7 +71,7 @@ object FrmConsProduto: TFrmConsProduto
       end
       item
         Expanded = False
-        FieldName = 'PESO'
+        FieldName = 'peso'
         Title.Caption = 'Peso'
         Visible = True
       end
@@ -330,29 +330,30 @@ object FrmConsProduto: TFrmConsProduto
       FieldName = 'prodesc'
       Size = 200
     end
-    object QryProdutoUNIDADE: TIntegerField
-      FieldName = 'UNIDADE'
-    end
     object QryProdutoVALOR: TFloatField
       FieldName = 'VALOR'
     end
     object QryProdutoPESO: TFloatField
       FieldName = 'PESO'
     end
+    object QryProdutounidade: TStringField
+      FieldName = 'unidade'
+      FixedChar = True
+      Size = 10
+    end
     object QryProdutoCODBARRA: TIntegerField
       FieldName = 'CODBARRA'
     end
-    object QryProdutofornecedor: TStringField
-      FieldName = 'fornecedor'
-      Size = 1000
-    end
-    object QryProdutoTAMANHO: TStringField
-      FieldName = 'TAMANHO'
-      Size = 10
-    end
     object QryProdutoMARCA: TStringField
       FieldName = 'MARCA'
+      FixedChar = True
       Size = 100
+    end
+    object QryProdutofornecedor: TIntegerField
+      FieldName = 'fornecedor'
+    end
+    object QryProdutotamanho: TFloatField
+      FieldName = 'tamanho'
     end
   end
   object QryFornecedor: TADOQuery
@@ -363,10 +364,6 @@ object FrmConsProduto: TFrmConsProduto
       'select * from  Fornecedor')
     Left = 256
     Top = 136
-    object QryFornecedorCNPJ: TStringField
-      FieldName = 'CNPJ'
-      Size = 15
-    end
     object QryFornecedorNOMEFANTASIA: TStringField
       FieldName = 'NOMEFANTASIA'
       Size = 200
@@ -413,6 +410,11 @@ object FrmConsProduto: TFrmConsProduto
       FieldName = 'MOVEL'
       Size = 14
     end
+    object QryFornecedorCNPJ: TBCDField
+      FieldName = 'CNPJ'
+      Precision = 15
+      Size = 0
+    end
   end
   object DsProduto: TDataSource
     DataSet = QryProduto
@@ -428,14 +430,8 @@ object FrmConsProduto: TFrmConsProduto
     Connection = DMDados.ADOEasyMaster
     CursorType = ctStatic
     Parameters = <>
-    SQL.Strings = (
-      '')
     Left = 472
     Top = 128
-    object QryConsCNPJ: TStringField
-      FieldName = 'CNPJ'
-      Size = 15
-    end
     object QryConsNOMEFANTASIA: TStringField
       FieldName = 'NOMEFANTASIA'
       Size = 200
@@ -490,32 +486,32 @@ object FrmConsProduto: TFrmConsProduto
       FieldName = 'prodesc'
       Size = 200
     end
-    object QryConsUNIDADE: TIntegerField
-      FieldName = 'UNIDADE'
-    end
-    object QryConsVALOR: TFloatField
-      FieldName = 'VALOR'
-    end
-    object QryConsPESO: TFloatField
-      FieldName = 'PESO'
-    end
-    object QryConsCODBARRA: TIntegerField
-      FieldName = 'CODBARRA'
-    end
-    object QryConsfornecedor: TStringField
-      FieldName = 'fornecedor'
-      Size = 1000
-    end
-    object QryConsTAMANHO: TStringField
-      FieldName = 'TAMANHO'
-      Size = 10
-    end
     object QryConsMARCA: TStringField
       FieldName = 'MARCA'
       Size = 100
     end
     object QryConsQtdItens: TIntegerField
       FieldName = 'QtdItens'
+    end
+    object QryConsunidade: TStringField
+      FieldName = 'unidade'
+      FixedChar = True
+      Size = 10
+    end
+    object QryConspeso: TFloatField
+      FieldName = 'peso'
+    end
+    object QryConsVALOR: TFloatField
+      FieldName = 'VALOR'
+    end
+    object QryConsfornecedor: TIntegerField
+      FieldName = 'fornecedor'
+    end
+    object QryConsCODBARRA: TIntegerField
+      FieldName = 'CODBARRA'
+    end
+    object QryConstamanho: TFloatField
+      FieldName = 'tamanho'
     end
   end
   object DsCons: TDataSource

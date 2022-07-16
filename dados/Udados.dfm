@@ -5,9 +5,8 @@ object DMDados: TDMDados
   object ADOEasyMaster: TADOConnection
     Connected = True
     ConnectionString = 
-      'Provider=SQLOLEDB.1;Password=2497;Persist Security Info=True;Use' +
-      'r ID=easy;Initial Catalog=Easy;Data Source=DESKTOP-M8884Q3\MASTE' +
-      'R'
+      'Provider=SQLOLEDB.1;Password=0224;Persist Security Info=True;Use' +
+      'r ID=matheus;Initial Catalog=Easy;Data Source=TH3UZ\MATHEUS'
     LoginPrompt = False
     Provider = 'SQLOLEDB.1'
     Left = 224

@@ -673,10 +673,6 @@ object FrmCadProduto: TFrmCadProduto
       'select * from fornecedor')
     Left = 368
     Top = 24
-    object QryFornecedorCNPJ: TStringField
-      FieldName = 'CNPJ'
-      Size = 15
-    end
     object QryFornecedorNOMEFANTASIA: TStringField
       FieldName = 'NOMEFANTASIA'
       Size = 200
@@ -684,10 +680,6 @@ object FrmCadProduto: TFrmCadProduto
     object QryFornecedorRAZAOSOCIAL: TStringField
       FieldName = 'RAZAOSOCIAL'
       Size = 200
-    end
-    object QryFornecedorSEGMENTO: TStringField
-      FieldName = 'SEGMENTO'
-      Size = 100
     end
     object QryFornecedorRUA: TStringField
       FieldName = 'RUA'
@@ -722,6 +714,16 @@ object FrmCadProduto: TFrmCadProduto
     object QryFornecedorMOVEL: TStringField
       FieldName = 'MOVEL'
       Size = 14
+    end
+    object QryFornecedorSegmento: TStringField
+      FieldName = 'Segmento'
+      FixedChar = True
+      Size = 100
+    end
+    object QryFornecedorCNPJ: TBCDField
+      FieldName = 'CNPJ'
+      Precision = 15
+      Size = 0
     end
   end
   object DsFornecedor: TDataSource
@@ -844,12 +846,11 @@ object FrmCadProduto: TFrmCadProduto
       '')
     Left = 488
     Top = 96
-    object QryUnicoduni: TStringField
-      FieldName = 'coduni'
-      Size = 10
-    end
     object QryUnidesuni: TStringField
       FieldName = 'desuni'
+    end
+    object QryUnicoduni: TIntegerField
+      FieldName = 'coduni'
     end
   end
   object DSUni: TDataSource

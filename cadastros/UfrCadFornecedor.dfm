@@ -100,8 +100,6 @@ object FrmFornecedor: TFrmFornecedor
     Color = clSilver
     ParentBackground = False
     TabOrder = 1
-    ExplicitLeft = 8
-    ExplicitTop = 171
     object Label5: TLabel
       Left = 16
       Top = 30
@@ -710,19 +708,18 @@ object FrmFornecedor: TFrmFornecedor
   end
   object CmdCadFornecedor: TADOCommand
     CommandText = 
-      'INSERT INTO Fornecedor( CNPJ, NOMEFANTASIA, RAZAOSOCIAL, SEGMENT' +
-      'O, RUA, NUMERO, UF, COMPLEMENTO, CIDADE, CEP, EMAIL, FIXO, MOVEL' +
-      ')'#13#10'VALUES (:CNPJ, :NOMEFANTASIA, :RAZAOSOCIAL, :SEGMENTO, :RUA, ' +
-      ':NUMERO, :UF, :COMPLEMENTO, :CIDADE, :CEP, :EMAIL, :FIXO, :MOVEL' +
-      ')'
+      'INSERT INTO Fornecedor(CNPJ, NOMEFANTASIA, RAZAOSOCIAL, SEGMENTO' +
+      ', RUA, NUMERO, UF, COMPLEMENTO, CIDADE, CEP, EMAIL, FIXO, MOVEL)' +
+      #13#10'VALUES (:CNPJ, :NOMEFANTASIA, :RAZAOSOCIAL, :SEGMENTO, :RUA, :' +
+      'NUMERO, :UF, :COMPLEMENTO, :CIDADE, :CEP, :EMAIL, :FIXO, :MOVEL)'
     Connection = DMDados.ADOEasyMaster
     Parameters = <
       item
         Name = 'CNPJ'
-        DataType = ftString
-        NumericScale = 255
-        Precision = 255
-        Size = 15
+        Attributes = [paSigned, paNullable]
+        DataType = ftBCD
+        Precision = 15
+        Size = 19
         Value = Null
       end
       item
@@ -731,7 +728,7 @@ object FrmFornecedor: TFrmFornecedor
         DataType = ftString
         NumericScale = 255
         Precision = 255
-        Size = 200
+        Size = 100
         Value = Null
       end
       item
@@ -740,7 +737,7 @@ object FrmFornecedor: TFrmFornecedor
         DataType = ftString
         NumericScale = 255
         Precision = 255
-        Size = 200
+        Size = 100
         Value = Null
       end
       item
@@ -758,7 +755,7 @@ object FrmFornecedor: TFrmFornecedor
         DataType = ftString
         NumericScale = 255
         Precision = 255
-        Size = 200
+        Size = 100
         Value = Null
       end
       item
@@ -784,7 +781,7 @@ object FrmFornecedor: TFrmFornecedor
         DataType = ftString
         NumericScale = 255
         Precision = 255
-        Size = 200
+        Size = 100
         Value = Null
       end
       item
@@ -793,7 +790,7 @@ object FrmFornecedor: TFrmFornecedor
         DataType = ftString
         NumericScale = 255
         Precision = 255
-        Size = 50
+        Size = 60
         Value = Null
       end
       item
@@ -810,7 +807,7 @@ object FrmFornecedor: TFrmFornecedor
         DataType = ftString
         NumericScale = 255
         Precision = 255
-        Size = 100
+        Size = 60
         Value = Null
       end
       item
@@ -819,7 +816,7 @@ object FrmFornecedor: TFrmFornecedor
         DataType = ftString
         NumericScale = 255
         Precision = 255
-        Size = 13
+        Size = 15
         Value = Null
       end
       item
@@ -828,7 +825,7 @@ object FrmFornecedor: TFrmFornecedor
         DataType = ftString
         NumericScale = 255
         Precision = 255
-        Size = 14
+        Size = 15
         Value = Null
       end>
     Left = 288
@@ -853,9 +850,6 @@ object FrmFornecedor: TFrmFornecedor
       'select * from fornecedor')
     Left = 288
     Top = 176
-    object QryFornecedorCNPJ: TIntegerField
-      FieldName = 'CNPJ'
-    end
     object QryFornecedorNOMEFANTASIA: TStringField
       FieldName = 'NOMEFANTASIA'
       FixedChar = True
@@ -906,6 +900,16 @@ object FrmFornecedor: TFrmFornecedor
       FieldName = 'MOVEL'
       FixedChar = True
       Size = 15
+    end
+    object QryFornecedorSegmento: TStringField
+      FieldName = 'Segmento'
+      FixedChar = True
+      Size = 100
+    end
+    object QryFornecedorCNPJ: TBCDField
+      FieldName = 'CNPJ'
+      Precision = 15
+      Size = 0
     end
   end
 end
