@@ -2,38 +2,38 @@
 <BorlandProject>
 	<Transactions>
     <Transaction>2020/10/14 17:09:36.000.796,=C:\Users\matheus\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2020/10/14 17:11:16.000.777,C:\Users\matheus\Documents\Embarcadero\Studio\Projects\Unit1.pas=D:\Projetos\EsyPvd\UfrLogin.pas</Transaction>
-    <Transaction>2020/10/14 17:11:16.000.777,C:\Users\matheus\Documents\Embarcadero\Studio\Projects\Unit1.dfm=D:\Projetos\EsyPvd\UfrLogin.dfm</Transaction>
+    <Transaction>2020/10/14 17:11:16.000.777,D:\Projetos\EsyPvd\UfrLogin.pas=C:\Users\matheus\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/10/14 17:11:16.000.777,D:\Projetos\EsyPvd\UfrLogin.dfm=C:\Users\matheus\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
     <Transaction>2020/10/14 17:12:41.000.630,=C:\Users\matheus\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2020/10/14 17:23:05.000.393,C:\Users\matheus\Documents\Embarcadero\Studio\Projects\Unit1.pas=D:\Projetos\EsyPvd\UnFunc.pas</Transaction>
-    <Transaction>2020/10/14 17:28:11.000.513,C:\Users\matheus\Documents\Embarcadero\Studio\Projects\Project1.dproj=D:\Projetos\EsyPvd\EsyEstoque.dproj</Transaction>
-    <Transaction>2020/10/14 18:05:48.000.488,D:\Projetos\EsyPvd\EsyEstoque.dproj=D:\Projetos\EsyPvd\EasyEstoque.dproj</Transaction>
+    <Transaction>2020/10/14 17:23:05.000.393,D:\Projetos\EsyPvd\UnFunc.pas=C:\Users\matheus\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/10/14 17:28:11.000.513,D:\Projetos\EsyPvd\EsyEstoque.dproj=C:\Users\matheus\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2020/10/14 18:05:48.000.488,D:\Projetos\EsyPvd\EasyEstoque.dproj=D:\Projetos\EsyPvd\EsyEstoque.dproj</Transaction>
     <Transaction>2020/10/14 18:15:40.000.488,=D:\Projetos\EsyPvd\Unit1.pas</Transaction>
-    <Transaction>2020/10/14 18:16:33.000.646,D:\Projetos\EsyPvd\Unit1.pas=D:\Projetos\EsyPvd\Dados\Udados.pas</Transaction>
-    <Transaction>2020/10/14 18:16:33.000.646,D:\Projetos\EsyPvd\Unit1.dfm=D:\Projetos\EsyPvd\Dados\Udados.dfm</Transaction>
+    <Transaction>2020/10/14 18:16:33.000.646,D:\Projetos\EsyPvd\Dados\Udados.pas=D:\Projetos\EsyPvd\Unit1.pas</Transaction>
+    <Transaction>2020/10/14 18:16:33.000.646,D:\Projetos\EsyPvd\Dados\Udados.dfm=D:\Projetos\EsyPvd\Unit1.dfm</Transaction>
     <Transaction>2020/10/14 18:35:25.000.953,=D:\Projetos\EsyPvd\Unit1.pas</Transaction>
-    <Transaction>2020/10/14 18:36:57.000.876,D:\Projetos\EsyPvd\UfrCadLogin.dfm=D:\Projetos\EsyPvd\Unit1.dfm</Transaction>
-    <Transaction>2020/10/14 18:36:57.000.876,D:\Projetos\EsyPvd\UfrCadLogin.pas=D:\Projetos\EsyPvd\Unit1.pas</Transaction>
+    <Transaction>2020/10/14 18:36:57.000.876,D:\Projetos\EsyPvd\Unit1.pas=D:\Projetos\EsyPvd\UfrCadLogin.pas</Transaction>
+    <Transaction>2020/10/14 18:36:57.000.876,D:\Projetos\EsyPvd\Unit1.dfm=D:\Projetos\EsyPvd\UfrCadLogin.dfm</Transaction>
     <Transaction>2020/10/15 10:17:02.000.358,=D:\Projetos\EsyPvd\UfrMenu.pas</Transaction>
     <Transaction>2020/10/15 10:31:28.000.033,=D:\Projetos\EsyPvd\Unit1.pas</Transaction>
-    <Transaction>2020/10/15 10:32:05.000.317,D:\Projetos\EsyPvd\Unit1.pas=D:\Projetos\EsyPvd\Cadastros\UfrCadFornecedor.pas</Transaction>
-    <Transaction>2020/10/15 10:32:05.000.317,D:\Projetos\EsyPvd\Unit1.dfm=D:\Projetos\EsyPvd\Cadastros\UfrCadFornecedor.dfm</Transaction>
+    <Transaction>2020/10/15 10:32:05.000.317,D:\Projetos\EsyPvd\Cadastros\UfrCadFornecedor.dfm=D:\Projetos\EsyPvd\Unit1.dfm</Transaction>
+    <Transaction>2020/10/15 10:32:05.000.317,D:\Projetos\EsyPvd\Cadastros\UfrCadFornecedor.pas=D:\Projetos\EsyPvd\Unit1.pas</Transaction>
     <Transaction>2020/10/15 11:43:47.000.586,=D:\Projetos\EsyPvd\Pkg.Json.DTO.pas</Transaction>
     <Transaction>2020/10/15 11:45:02.000.408,=D:\Projetos\EsyPvd\Unit1.pas</Transaction>
-    <Transaction>2020/10/15 11:45:34.000.900,D:\Projetos\EsyPvd\Unit1.pas=D:\Projetos\EsyPvd\Ucep.pas</Transaction>
+    <Transaction>2020/10/15 11:45:34.000.900,D:\Projetos\EsyPvd\Ucep.pas=D:\Projetos\EsyPvd\Unit1.pas</Transaction>
     <Transaction>2020/10/16 10:05:29.000.697,=D:\Projetos\EsyPvd\GetCnpj.pas</Transaction>
     <Transaction>2020/10/21 11:14:48.000.332,=D:\Projetos\EsyPvd\Unit1.pas</Transaction>
-    <Transaction>2020/10/21 11:15:10.000.129,D:\Projetos\EsyPvd\Unit1.pas=D:\Projetos\EsyPvd\Cadastros\UfrCadProduto.pas</Transaction>
-    <Transaction>2020/10/21 11:15:10.000.129,D:\Projetos\EsyPvd\Unit1.dfm=D:\Projetos\EsyPvd\Cadastros\UfrCadProduto.dfm</Transaction>
+    <Transaction>2020/10/21 11:15:10.000.129,D:\Projetos\EsyPvd\Cadastros\UfrCadProduto.pas=D:\Projetos\EsyPvd\Unit1.pas</Transaction>
+    <Transaction>2020/10/21 11:15:10.000.129,D:\Projetos\EsyPvd\Cadastros\UfrCadProduto.dfm=D:\Projetos\EsyPvd\Unit1.dfm</Transaction>
     <Transaction>2020/10/22 16:33:36.000.354,=D:\Projetos\EsyPvd\Unit1.pas</Transaction>
-    <Transaction>2020/10/22 16:34:43.000.442,D:\Projetos\EsyPvd\Unit1.pas=D:\Projetos\EsyPvd\Consultas\UfrConsultaProduto.pas</Transaction>
-    <Transaction>2020/10/22 16:34:43.000.442,D:\Projetos\EsyPvd\Unit1.dfm=D:\Projetos\EsyPvd\Consultas\UfrConsultaProduto.dfm</Transaction>
+    <Transaction>2020/10/22 16:34:43.000.442,D:\Projetos\EsyPvd\Consultas\UfrConsultaProduto.pas=D:\Projetos\EsyPvd\Unit1.pas</Transaction>
+    <Transaction>2020/10/22 16:34:43.000.442,D:\Projetos\EsyPvd\Consultas\UfrConsultaProduto.dfm=D:\Projetos\EsyPvd\Unit1.dfm</Transaction>
     <Transaction>2020/11/16 10:18:40.000.594,=D:\Projetos\EasyEstoque\Unit1.pas</Transaction>
-    <Transaction>2020/11/16 10:18:57.000.458,D:\Projetos\EasyEstoque\Unit1.pas=D:\Projetos\EasyEstoque\UnFunc.pas</Transaction>
+    <Transaction>2020/11/16 10:18:57.000.458,D:\Projetos\EasyEstoque\UnFunc.pas=D:\Projetos\EasyEstoque\Unit1.pas</Transaction>
     <Transaction>2020/12/05 23:56:40.000.857,=D:\Projetos\EasyEstoque\UfrControlUser.pas</Transaction>
     <Transaction>2021/01/03 23:34:56.000.936,=D:\Projetos\EasyEstoque\Unit1.pas</Transaction>
-    <Transaction>2021/01/03 23:56:46.000.118,D:\Projetos\EasyEstoque\Unit1.pas=D:\Projetos\EasyEstoque\ugrafi.pas</Transaction>
-    <Transaction>2021/01/03 23:56:46.000.118,D:\Projetos\EasyEstoque\Unit1.dfm=D:\Projetos\EasyEstoque\ugrafi.dfm</Transaction>
+    <Transaction>2021/01/03 23:56:46.000.118,D:\Projetos\EasyEstoque\ugrafi.pas=D:\Projetos\EasyEstoque\Unit1.pas</Transaction>
+    <Transaction>2021/01/03 23:56:46.000.118,D:\Projetos\EasyEstoque\ugrafi.dfm=D:\Projetos\EasyEstoque\Unit1.dfm</Transaction>
     <Transaction>2021/04/22 23:14:18.000.707,D:\Projetos\EasyEstoque\ugrafi.pas=</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">

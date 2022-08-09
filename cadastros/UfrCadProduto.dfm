@@ -2,8 +2,8 @@ object FrmCadProduto: TFrmCadProduto
   Left = 0
   Top = 0
   Caption = 'Cadastro de Produto'
-  ClientHeight = 226
-  ClientWidth = 605
+  ClientHeight = 405
+  ClientWidth = 764
   Color = clGradientActiveCaption
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -14,97 +14,15 @@ object FrmCadProduto: TFrmCadProduto
   Position = poScreenCenter
   PixelsPerInch = 96
   TextHeight = 13
-  object Label1: TLabel
-    Left = 8
-    Top = 69
-    Width = 55
-    Height = 13
-    Caption = 'Fornecedor'
-  end
-  object Label2: TLabel
-    Left = 159
-    Top = 69
-    Width = 83
-    Height = 13
-    Caption = 'Nome do produto'
-  end
-  object Label3: TLabel
-    Left = 97
-    Top = 125
-    Width = 56
-    Height = 13
-    Caption = 'Quantidade'
-  end
-  object Label5: TLabel
-    Left = 10
-    Top = 174
-    Width = 42
-    Height = 13
-    Caption = 'Unidade '
-  end
-  object Label6: TLabel
-    Left = 8
-    Top = 125
-    Width = 80
-    Height = 13
-    Caption = 'Valor do Produto'
-  end
-  object Label7: TLabel
-    Left = 198
-    Top = 125
-    Width = 29
-    Height = 13
-    Caption = 'Altura'
-  end
-  object Label8: TLabel
-    Left = 292
-    Top = 125
-    Width = 37
-    Height = 13
-    Caption = 'Largura'
-  end
-  object Marca: TLabel
-    Left = 386
-    Top = 125
-    Width = 29
-    Height = 13
-    Caption = 'Marca'
-  end
-  object Label4: TLabel
-    Left = 68
-    Top = 174
-    Width = 42
-    Height = 13
-    Caption = 'Unidade '
-  end
-  object EdtNomePro: TEdit
-    Left = 159
-    Top = 88
-    Width = 438
-    Height = 21
-    Enabled = False
-    TabOrder = 0
-  end
-  object DBLFornecedor: TDBLookupComboBox
-    Left = 8
-    Top = 88
-    Width = 145
-    Height = 21
-    Enabled = False
-    KeyField = 'CNPJ'
-    ListField = 'RAZAOSOCIAL'
-    ListSource = DsFornecedor
-    TabOrder = 1
-  end
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 605
+    Width = 764
     Height = 42
     Align = alTop
     Color = clSilver
     ParentBackground = False
-    TabOrder = 2
+    TabOrder = 0
     object SpBtnSalvar: TSpeedButton
       Left = 39
       Top = 9
@@ -602,68 +520,238 @@ object FrmCadProduto: TFrmCadProduto
       OnClick = SpBtnAdicionarClick
     end
   end
-  object EdtQuantidade: TEdit
-    Left = 97
-    Top = 144
-    Width = 88
-    Height = 21
-    Enabled = False
-    TabOrder = 3
-  end
-  object MEditPeso: TMaskEdit
-    Left = 10
-    Top = 193
-    Width = 42
-    Height = 21
-    Enabled = False
-    MaxLength = 7
-    TabOrder = 4
-    Text = ''
-  end
-  object MEditValor: TMaskEdit
-    Left = 8
-    Top = 144
-    Width = 80
-    Height = 21
-    Enabled = False
-    MaxLength = 7
-    TabOrder = 5
-    Text = 'R$'
-  end
-  object EdtAltura: TEdit
-    Left = 198
-    Top = 144
-    Width = 88
-    Height = 21
-    Enabled = False
-    TabOrder = 6
-  end
-  object EdtLargura: TEdit
-    Left = 292
-    Top = 144
-    Width = 88
-    Height = 21
-    Enabled = False
-    TabOrder = 7
-  end
-  object EdtMarca: TEdit
-    Left = 386
-    Top = 144
-    Width = 166
-    Height = 21
-    Enabled = False
-    TabOrder = 8
-  end
-  object DBUni: TDBLookupComboBox
-    Left = 68
-    Top = 194
-    Width = 174
-    Height = 21
-    Enabled = False
-    KeyField = 'coduni'
-    ListField = 'coduni;desuni'
-    ListSource = DSUni
-    TabOrder = 9
+  object PageControl1: TPageControl
+    Left = 0
+    Top = 42
+    Width = 764
+    Height = 363
+    ActivePage = TabSheet1
+    Align = alClient
+    TabOrder = 1
+    ExplicitLeft = 24
+    ExplicitTop = 216
+    ExplicitWidth = 748
+    ExplicitHeight = 258
+    object TabSheet1: TTabSheet
+      Caption = 'Principais'
+      object Label1: TLabel
+        Left = 3
+        Top = 21
+        Width = 55
+        Height = 13
+        Caption = 'Fornecedor'
+      end
+      object Label2: TLabel
+        Left = 175
+        Top = 21
+        Width = 83
+        Height = 13
+        Caption = 'Nome do produto'
+      end
+      object Marca: TLabel
+        Left = 3
+        Top = 77
+        Width = 29
+        Height = 13
+        Caption = 'Marca'
+      end
+      object Label5: TLabel
+        Left = 184
+        Top = 77
+        Width = 42
+        Height = 13
+        Caption = 'Unidade '
+      end
+      object Label7: TLabel
+        Left = 470
+        Top = 77
+        Width = 29
+        Height = 13
+        Caption = 'Altura'
+      end
+      object Label8: TLabel
+        Left = 588
+        Top = 77
+        Width = 37
+        Height = 13
+        Caption = 'Largura'
+      end
+      object Label4: TLabel
+        Left = 354
+        Top = 135
+        Width = 29
+        Height = 13
+        Caption = 'Grupo'
+      end
+      object Label9: TLabel
+        Left = 531
+        Top = 135
+        Width = 50
+        Height = 13
+        Caption = 'Sub-grupo'
+      end
+      object Label10: TLabel
+        Left = 6
+        Top = 135
+        Width = 31
+        Height = 13
+        Caption = 'Classe'
+      end
+      object Label11: TLabel
+        Left = 175
+        Top = 135
+        Width = 32
+        Height = 13
+        Caption = 'Familia'
+      end
+      object DBLFornecedor: TDBLookupComboBox
+        Left = 3
+        Top = 40
+        Width = 145
+        Height = 21
+        Enabled = False
+        KeyField = 'CNPJ'
+        ListField = 'RAZAOSOCIAL'
+        ListSource = DsFornecedor
+        TabOrder = 0
+      end
+      object EdtNomePro: TEdit
+        Left = 175
+        Top = 40
+        Width = 438
+        Height = 21
+        Enabled = False
+        TabOrder = 1
+      end
+      object EdtMarca: TEdit
+        Left = 3
+        Top = 96
+        Width = 166
+        Height = 21
+        Enabled = False
+        TabOrder = 2
+      end
+      object MEditPeso: TMaskEdit
+        Left = 184
+        Top = 96
+        Width = 42
+        Height = 21
+        Enabled = False
+        MaxLength = 7
+        TabOrder = 3
+        Text = ''
+      end
+      object DBUni: TDBLookupComboBox
+        Left = 260
+        Top = 96
+        Width = 174
+        Height = 21
+        Enabled = False
+        KeyField = 'coduni'
+        ListField = 'coduni;desuni'
+        TabOrder = 4
+      end
+      object EdtAltura: TEdit
+        Left = 470
+        Top = 96
+        Width = 88
+        Height = 21
+        Enabled = False
+        TabOrder = 5
+      end
+      object EdtLargura: TEdit
+        Left = 588
+        Top = 96
+        Width = 88
+        Height = 21
+        Enabled = False
+        TabOrder = 6
+      end
+      object DBLookupComboBox1: TDBLookupComboBox
+        Left = 354
+        Top = 154
+        Width = 145
+        Height = 21
+        Enabled = False
+        KeyField = 'CNPJ'
+        ListField = 'RAZAOSOCIAL'
+        ListSource = DsFornecedor
+        TabOrder = 7
+      end
+      object DBLookupComboBox2: TDBLookupComboBox
+        Left = 531
+        Top = 154
+        Width = 145
+        Height = 21
+        Enabled = False
+        KeyField = 'CNPJ'
+        ListField = 'RAZAOSOCIAL'
+        ListSource = DsFornecedor
+        TabOrder = 8
+      end
+      object DBLookupComboBox3: TDBLookupComboBox
+        Left = 175
+        Top = 154
+        Width = 145
+        Height = 21
+        Enabled = False
+        KeyField = 'CNPJ'
+        ListField = 'RAZAOSOCIAL'
+        ListSource = DsFornecedor
+        TabOrder = 9
+      end
+      object DBLookupComboBox4: TDBLookupComboBox
+        Left = 6
+        Top = 154
+        Width = 145
+        Height = 21
+        Enabled = False
+        KeyField = 'CNPJ'
+        ListField = 'RAZAOSOCIAL'
+        ListSource = DsFornecedor
+        TabOrder = 10
+      end
+    end
+    object TabSheet2: TTabSheet
+      Caption = 'Financeiro'
+      ImageIndex = 1
+      object Label6: TLabel
+        Left = 11
+        Top = 13
+        Width = 80
+        Height = 13
+        Caption = 'Valor do Produto'
+      end
+      object MEditValor: TMaskEdit
+        Left = 11
+        Top = 32
+        Width = 80
+        Height = 21
+        Enabled = False
+        MaxLength = 7
+        TabOrder = 0
+        Text = 'R$'
+      end
+    end
+    object TabSheet3: TTabSheet
+      Caption = 'Estoque'
+      ImageIndex = 2
+      object Label3: TLabel
+        Left = 23
+        Top = 29
+        Width = 56
+        Height = 13
+        Caption = 'Quantidade'
+      end
+      object EdtQuantidade: TEdit
+        Left = 23
+        Top = 48
+        Width = 88
+        Height = 21
+        Enabled = False
+        TabOrder = 0
+      end
+    end
   end
   object QryFornecedor: TADOQuery
     Connection = DMDados.ADOEasyMaster
@@ -852,10 +940,5 @@ object FrmCadProduto: TFrmCadProduto
     object QryUnicoduni: TIntegerField
       FieldName = 'coduni'
     end
-  end
-  object DSUni: TDataSource
-    DataSet = QryUni
-    Left = 504
-    Top = 160
   end
 end

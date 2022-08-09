@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls,
-  Vcl.DBCtrls, Data.DB, Data.Win.ADODB, Vcl.Mask;
+  Vcl.DBCtrls, Data.DB, Data.Win.ADODB, Vcl.Mask, Vcl.ComCtrls, Vcl.Menus;
 
 type
   TFrmCadProduto = class(TForm)
@@ -55,13 +55,23 @@ type
     EdtMarca: TEdit;
     Marca: TLabel;
     DBUni: TDBLookupComboBox;
-    Label4: TLabel;
     QryUni: TADOQuery;
-    DSUni: TDataSource;
     QryUnidesuni: TStringField;
     QryUnicoduni: TIntegerField;
     QryFornecedorSegmento: TStringField;
     QryFornecedorCNPJ: TBCDField;
+    PageControl1: TPageControl;
+    TabSheet1: TTabSheet;
+    TabSheet2: TTabSheet;
+    TabSheet3: TTabSheet;
+    DBLookupComboBox1: TDBLookupComboBox;
+    Label4: TLabel;
+    Label9: TLabel;
+    DBLookupComboBox2: TDBLookupComboBox;
+    DBLookupComboBox3: TDBLookupComboBox;
+    Label10: TLabel;
+    DBLookupComboBox4: TDBLookupComboBox;
+    Label11: TLabel;
     procedure SpBtnCancelarClick(Sender: TObject);
     procedure SpBtnSalvarClick(Sender: TObject);
     procedure SpBtnAdicionarClick(Sender: TObject);
