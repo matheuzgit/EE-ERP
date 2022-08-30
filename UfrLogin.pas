@@ -21,9 +21,6 @@ type
     QryHistLogn: TADOQuery;
     qryultlogado: TStringField;
     ComdInser: TADOCommand;
-    QryLoginlogin: TStringField;
-    QryLoginsenha: TIntegerField;
-    QryLoginTIPFUNC: TStringField;
     Panel2: TPanel;
     Label3: TLabel;
     Label4: TLabel;
@@ -31,11 +28,14 @@ type
     Image2: TImage;
     StatusBar1: TStatusBar;
     Timer1: TTimer;
+    QryLoginID: TAutoIncField;
+    QryLoginCPF: TLargeintField;
+    QryLoginPSW: TIntegerField;
+    QryLoginTIPFUNC: TStringField;
     procedure EdtLoginKeyPress(Sender: TObject; var Key: Char);
     procedure EdtSenhaKeyPress(Sender: TObject; var Key: Char);
     procedure BtnCadLoginClick(Sender: TObject);
     procedure BtnLogarClick(Sender: TObject);
-    procedure EdtLoginClick(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
   private
     { Private declarations }
@@ -72,12 +72,6 @@ begin
   FrmLogin.Close;
 end;
 
-procedure TFrmLogin.EdtLoginClick(Sender: TObject);
-begin
-  QryHistLogn.open;
-  EdtLogin.Text := qryultlogado.AsString;
-end;
-
 procedure TFrmLogin.EdtLoginKeyPress(Sender: TObject; var Key: Char);
 begin
   if not (Key in['0'..'9',#8,#9,#13]) then
@@ -103,17 +97,17 @@ begin
   QryLogin.Open;
   QryLogin.First;
 
-  while (QryLoginLogin.AsString <> EdtLogin.Text) or (QryLoginSenha.AsString <> EdtSenha.Text) do
+  while (QryLoginCPF.Value <> StrToInt64(EdtLogin.Text)) or (QryLoginPSW.AsInteger <> StrToInt64(EdtSenha.Text)) do
   begin
    if (QryLogin.Eof)  then
    begin
-     if (QryLoginLogin.AsString <> EdtLogin.Text) or (QryLoginSenha.AsString <> EdtSenha.Text)  then
+     if (QryLoginCPF.Value <> StrToInt64(EdtLogin.Text)) or (QryLoginPSW.AsInteger <> StrToInt64(EdtSenha.Text))  then
      begin
        raise Exception.Create('Credenciais Incorretas');
      end;
    end;
   QryLogin.Next;
-  ComdInser.Parameters.ParamByName('Login').Value := EdtLogin.Text;
+  ComdInser.Parameters.ParamByName('Login').Value := (EdtLogin.Text);
   ComdInser.Execute;
 end;
 

@@ -10,9 +10,7 @@ object FrmCadProduto: TFrmCadProduto
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
-  OldCreateOrder = False
   Position = poScreenCenter
-  PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel
     Left = 0
@@ -438,7 +436,7 @@ object FrmCadProduto: TFrmCadProduto
     end
     object SpBtnAdicionar: TSpeedButton
       Left = 10
-      Top = 9
+      Top = 8
       Width = 23
       Height = 28
       Glyph.Data = {
@@ -528,10 +526,6 @@ object FrmCadProduto: TFrmCadProduto
     ActivePage = TabSheet1
     Align = alClient
     TabOrder = 1
-    ExplicitLeft = 24
-    ExplicitTop = 216
-    ExplicitWidth = 748
-    ExplicitHeight = 258
     object TabSheet1: TTabSheet
       Caption = 'Principais'
       object Label1: TLabel
@@ -563,14 +557,14 @@ object FrmCadProduto: TFrmCadProduto
         Caption = 'Unidade '
       end
       object Label7: TLabel
-        Left = 470
+        Left = 376
         Top = 77
         Width = 29
         Height = 13
         Caption = 'Altura'
       end
       object Label8: TLabel
-        Left = 588
+        Left = 502
         Top = 77
         Width = 37
         Height = 13
@@ -631,41 +625,32 @@ object FrmCadProduto: TFrmCadProduto
         Enabled = False
         TabOrder = 2
       end
-      object MEditPeso: TMaskEdit
-        Left = 184
-        Top = 96
-        Width = 42
-        Height = 21
-        Enabled = False
-        MaxLength = 7
-        TabOrder = 3
-        Text = ''
-      end
       object DBUni: TDBLookupComboBox
-        Left = 260
+        Left = 184
         Top = 96
         Width = 174
         Height = 21
         Enabled = False
-        KeyField = 'coduni'
-        ListField = 'coduni;desuni'
-        TabOrder = 4
+        KeyField = 'Unidade'
+        ListField = 'Descricao'
+        ListSource = DsUni
+        TabOrder = 3
       end
       object EdtAltura: TEdit
-        Left = 470
+        Left = 376
+        Top = 96
+        Width = 88
+        Height = 21
+        Enabled = False
+        TabOrder = 4
+      end
+      object EdtLargura: TEdit
+        Left = 502
         Top = 96
         Width = 88
         Height = 21
         Enabled = False
         TabOrder = 5
-      end
-      object EdtLargura: TEdit
-        Left = 588
-        Top = 96
-        Width = 88
-        Height = 21
-        Enabled = False
-        TabOrder = 6
       end
       object DBLookupComboBox1: TDBLookupComboBox
         Left = 354
@@ -676,7 +661,7 @@ object FrmCadProduto: TFrmCadProduto
         KeyField = 'CNPJ'
         ListField = 'RAZAOSOCIAL'
         ListSource = DsFornecedor
-        TabOrder = 7
+        TabOrder = 6
       end
       object DBLookupComboBox2: TDBLookupComboBox
         Left = 531
@@ -687,7 +672,7 @@ object FrmCadProduto: TFrmCadProduto
         KeyField = 'CNPJ'
         ListField = 'RAZAOSOCIAL'
         ListSource = DsFornecedor
-        TabOrder = 8
+        TabOrder = 7
       end
       object DBLookupComboBox3: TDBLookupComboBox
         Left = 175
@@ -698,7 +683,7 @@ object FrmCadProduto: TFrmCadProduto
         KeyField = 'CNPJ'
         ListField = 'RAZAOSOCIAL'
         ListSource = DsFornecedor
-        TabOrder = 9
+        TabOrder = 8
       end
       object DBLookupComboBox4: TDBLookupComboBox
         Left = 6
@@ -709,7 +694,7 @@ object FrmCadProduto: TFrmCadProduto
         KeyField = 'CNPJ'
         ListField = 'RAZAOSOCIAL'
         ListSource = DsFornecedor
-        TabOrder = 10
+        TabOrder = 9
       end
     end
     object TabSheet2: TTabSheet
@@ -930,15 +915,24 @@ object FrmCadProduto: TFrmCadProduto
     CursorType = ctStatic
     Parameters = <>
     SQL.Strings = (
-      'SELECT coduni, desuni FROM unidade'
+      'SELECT *  FROM UNI'
       '')
-    Left = 488
-    Top = 96
-    object QryUnidesuni: TStringField
-      FieldName = 'desuni'
+    Left = 320
+    Top = 288
+    object QryUniUnidade: TStringField
+      FieldName = 'Unidade'
+      FixedChar = True
+      Size = 4
     end
-    object QryUnicoduni: TIntegerField
-      FieldName = 'coduni'
+    object QryUniDescricao: TStringField
+      FieldName = 'Descricao'
+      FixedChar = True
+      Size = 30
     end
+  end
+  object DsUni: TDataSource
+    DataSet = QryUni
+    Left = 256
+    Top = 272
   end
 end

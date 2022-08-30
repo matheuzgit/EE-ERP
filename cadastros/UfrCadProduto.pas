@@ -36,7 +36,6 @@ type
     QryFornecedorMOVEL: TStringField;
     DsFornecedor: TDataSource;
     SpBtnCancelar: TSpeedButton;
-    MEditPeso: TMaskEdit;
     MEditValor: TMaskEdit;
     EdtAltura: TEdit;
     Label7: TLabel;
@@ -56,8 +55,6 @@ type
     Marca: TLabel;
     DBUni: TDBLookupComboBox;
     QryUni: TADOQuery;
-    QryUnidesuni: TStringField;
-    QryUnicoduni: TIntegerField;
     QryFornecedorSegmento: TStringField;
     QryFornecedorCNPJ: TBCDField;
     PageControl1: TPageControl;
@@ -72,6 +69,9 @@ type
     Label10: TLabel;
     DBLookupComboBox4: TDBLookupComboBox;
     Label11: TLabel;
+    DsUni: TDataSource;
+    QryUniUnidade: TStringField;
+    QryUniDescricao: TStringField;
     procedure SpBtnCancelarClick(Sender: TObject);
     procedure SpBtnSalvarClick(Sender: TObject);
     procedure SpBtnAdicionarClick(Sender: TObject);
@@ -95,7 +95,6 @@ procedure TFrmCadProduto.SpBtnAdicionarClick(Sender: TObject);
 begin
   EdtNomePro.Enabled := True;
   EdtQuantidade.Enabled := True;
-  MEditPeso.Enabled := True;
   MEditValor.Enabled:= True;
   EdtAltura.Enabled := True;
   EdtLargura.Enabled := True;
@@ -110,7 +109,7 @@ begin
   if MessageDlg('Deseja cancelar procedimento?', mtConfirmation, [mbYes, mbNo],0) = mrYes then
     EdtNomePro.Clear;
     EdtQuantidade.Clear;
-    MEditPeso.Text := '__,__kg';
+
     MEditValor.Text := 'R$';
     EdtAltura.Clear;
     EdtLargura.Clear;
@@ -119,7 +118,7 @@ begin
 
     EdtNomePro.Enabled := False;
     EdtQuantidade.Enabled :=  False;
-    MEditPeso.Enabled :=  False;
+
     MEditValor.Enabled :=  False;
     EdtAltura.Enabled :=  False;
     EdtLargura.Enabled := False;
@@ -166,11 +165,6 @@ begin
     raise Exception.Create('Campo Valor Obrigatótio!!!')
   else
     CmdProduto.Parameters.ParamByName('VALOR').Value := StrToFloat(copy(MEditValor.Text,3,5));
-
-  if (MEditPeso.Text = '__,__kg') and (MEditPeso.Text = '') then
-    raise Exception.Create('Campo Peso Obrigatótio!!!')
-  else
-    CmdProduto.Parameters.ParamByName('PESO').Value := StrToFloat(copy(MEditPeso.Text,1,5));
 
   if EdtQuantidade.Text = '' then
     raise Exception.Create('Campo da Quantidade Obrigatótio!!!')

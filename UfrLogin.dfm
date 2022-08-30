@@ -12,10 +12,8 @@ object FrmLogin: TFrmLogin
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
-  OldCreateOrder = False
   Position = poDesigned
   WindowState = wsMaximized
-  PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel
     Left = 0
@@ -24,10 +22,6 @@ object FrmLogin: TFrmLogin
     Height = 848
     Align = alClient
     TabOrder = 0
-    ExplicitLeft = -152
-    ExplicitTop = -8
-    ExplicitWidth = 1364
-    ExplicitHeight = 670
     object Image2: TImage
       Left = 303
       Top = 80
@@ -19532,8 +19526,6 @@ object FrmLogin: TFrmLogin
       Color = clGreen
       ParentBackground = False
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitHeight = 668
       object Label1: TLabel
         Left = 10
         Top = 164
@@ -19564,17 +19556,15 @@ object FrmLogin: TFrmLogin
         Left = 0
         Top = 183
         Width = 304
-        Height = 26
+        Height = 21
         Color = clGradientActiveCaption
         TabOrder = 0
-        OnClick = EdtLoginClick
-        OnKeyPress = EdtLoginKeyPress
       end
       object EdtSenha: TEdit
         Left = 0
         Top = 229
         Width = 304
-        Height = 25
+        Height = 20
         Color = clInactiveCaption
         Font.Charset = SYMBOL_CHARSET
         Font.Color = clWindowText
@@ -19778,12 +19768,15 @@ object FrmLogin: TFrmLogin
       'select * from login')
     Left = 40
     Top = 312
-    object QryLoginlogin: TStringField
-      FieldName = 'login'
-      Size = 15
+    object QryLoginID: TAutoIncField
+      FieldName = 'ID'
+      ReadOnly = True
     end
-    object QryLoginsenha: TIntegerField
-      FieldName = 'senha'
+    object QryLoginCPF: TLargeintField
+      FieldName = 'CPF'
+    end
+    object QryLoginPSW: TIntegerField
+      FieldName = 'PSW'
     end
     object QryLoginTIPFUNC: TStringField
       FieldName = 'TIPFUNC'
@@ -19805,7 +19798,9 @@ object FrmLogin: TFrmLogin
     end
   end
   object ComdInser: TADOCommand
-    CommandText = 'insert  into histLogin(Login)'#13#10'values(:Login)'
+    CommandText = 
+      'insert  into histLogin(Login, DataHora)'#13#10'values(:Login, CURRENT_' +
+      'TIMESTAMP)  '
     Connection = DMDados.ADOEasyMaster
     Parameters = <
       item
@@ -19813,7 +19808,7 @@ object FrmLogin: TFrmLogin
         DataType = ftString
         NumericScale = 255
         Precision = 255
-        Size = 11
+        Size = 15
         Value = Null
       end>
     Left = 136
