@@ -5,7 +5,8 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls,
-  Vcl.DBCtrls, Data.DB, Data.Win.ADODB, Vcl.Mask, Vcl.ComCtrls, Vcl.Menus;
+  Vcl.DBCtrls, Data.DB, Data.Win.ADODB, Vcl.Mask, Vcl.ComCtrls, Vcl.Menus,
+  Vcl.Grids, Vcl.DBGrids;
 
 type
   TFrmCadProduto = class(TForm)
@@ -61,21 +62,51 @@ type
     TabSheet1: TTabSheet;
     TabSheet2: TTabSheet;
     TabSheet3: TTabSheet;
-    DBLookupComboBox1: TDBLookupComboBox;
+    DBcbGrupo: TDBLookupComboBox;
     Label4: TLabel;
     Label9: TLabel;
-    DBLookupComboBox2: TDBLookupComboBox;
-    DBLookupComboBox3: TDBLookupComboBox;
+    DBcbSubGrupo: TDBLookupComboBox;
+    DBcbFamilia: TDBLookupComboBox;
     Label10: TLabel;
     DBLookupComboBox4: TDBLookupComboBox;
     Label11: TLabel;
     DsUni: TDataSource;
     QryUniUnidade: TStringField;
     QryUniDescricao: TStringField;
+    SbtnCadClasse: TSpeedButton;
+    SbtnCadFamilia: TSpeedButton;
+    SbtnCadGrupo: TSpeedButton;
+    SbtnCadSubGrupo: TSpeedButton;
+    SbtnCadMarca: TSpeedButton;
+    SbtnCadFornecedor: TSpeedButton;
+    SbtnCadUnidade: TSpeedButton;
+    MaskEdit1: TMaskEdit;
+    Label12: TLabel;
+    MaskEdit2: TMaskEdit;
+    Label13: TLabel;
+    Edit1: TEdit;
+    Entradas: TLabel;
+    Edit2: TEdit;
+    Saídas: TLabel;
+    Edit3: TEdit;
+    Label16: TLabel;
+    Edit4: TEdit;
+    Label17: TLabel;
+    DBGrid1: TDBGrid;
+    Panel2: TPanel;
+    QryGrupo: TADOQuery;
+    DsGrupo: TDataSource;
+    QryFamilia: TADOQuery;
+    DsFamilia: TDataSource;
+    QrySubGrupo: TADOQuery;
+    DsSubGrupo: TDataSource;
     procedure SpBtnCancelarClick(Sender: TObject);
     procedure SpBtnSalvarClick(Sender: TObject);
     procedure SpBtnAdicionarClick(Sender: TObject);
     procedure SpBtnPesquisarClick(Sender: TObject);
+    procedure SbtnCadFamiliaClick(Sender: TObject);
+    procedure SbtnCadGrupoClick(Sender: TObject);
+    procedure SbtnCadSubGrupoClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -89,7 +120,58 @@ implementation
 
 {$R *.dfm}
 
-uses Udados, UfrConsultaProduto;
+uses Udados, UfrConsultaProduto, UfrCadGeralProd;
+
+procedure TFrmCadProduto.SbtnCadFamiliaClick(Sender: TObject);
+var Familia : TFrmCadGeralProd;
+begin
+  Familia := TFrmCadGeralProd.Create(Self);
+  try
+    Familia.Caption := 'Cadastro de Família de Produto';
+    Familia.LblDesc.Caption := 'Descrição Família';
+    Familia.QryBuscaDados.SQL.Add('Select * from Familia');
+    Familia.QryBuscaDados.open;
+    Familia.DBConsutaCadGeralProd.Columns[0].Title.Caption := 'Código';
+    Familia.DBConsutaCadGeralProd.Columns[1].Title.Caption := 'Descrição';
+    Familia.ShowModal;
+  finally
+    Familia.free;
+  end;
+end;
+
+procedure TFrmCadProduto.SbtnCadGrupoClick(Sender: TObject);
+var Grupo : TFrmCadGeralProd;
+begin
+  Grupo := TFrmCadGeralProd.Create(Self);
+  try
+    Grupo.Caption := 'Cadastro de Grupos de Produto';
+    Grupo.LblDesc.Caption := 'Descrição Grupo';
+    Grupo.QryBuscaDados.SQL.Add('Select * from Grupo');
+    Grupo.QryBuscaDados.open;
+    Grupo.DBConsutaCadGeralProd.Columns[0].Title.Caption := 'Código';
+    Grupo.DBConsutaCadGeralProd.Columns[1].Title.Caption := 'Descrição';
+    Grupo.ShowModal;
+  finally
+    Grupo.free;
+  end;
+end;
+
+procedure TFrmCadProduto.SbtnCadSubGrupoClick(Sender: TObject);
+var SubGrupos : TFrmCadGeralProd;
+begin
+  SubGrupos := TFrmCadGeralProd.Create(Self);
+  try
+    SubGrupos.Caption := 'Cadastro de SubGrupos de Produto';
+    SubGrupos.LblDesc.Caption := 'Descrição SubGrupo';
+    SubGrupos.QryBuscaDados.SQL.Add('Select * from SubGrupo');
+    SubGrupos.QryBuscaDados.open;
+    SubGrupos.DBConsutaCadGeralProd.Columns[0].Title.Caption := 'Código';
+    SubGrupos.DBConsutaCadGeralProd.Columns[1].Title.Caption := 'Descrição';
+    SubGrupos.ShowModal;
+  finally
+    SubGrupos.free;
+  end;
+end;
 
 procedure TFrmCadProduto.SpBtnAdicionarClick(Sender: TObject);
 begin
@@ -100,8 +182,14 @@ begin
   EdtLargura.Enabled := True;
   DBLFornecedor.Enabled := True;
   DBUni.Enabled := True;
+  DBcbSubGrupo.Enabled := true;
+  DBcbGrupo.Enabled := true;
+  DBcbFamilia.Enabled := true;
   QryFornecedor.Open;
   QryUni.Open;
+  QryGrupo.open;
+  QryFamilia.open;
+  QrySubGrupo.open;
 end;
 
 procedure TFrmCadProduto.SpBtnCancelarClick(Sender: TObject);

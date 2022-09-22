@@ -47,7 +47,6 @@ var
 begin
   Fornecedor := TFrmFornecedor.Create(Self);
   Fornecedor.ShowModal;
-
 end;
 
 procedure TFrmMenu.Produtos1Click(Sender: TObject);

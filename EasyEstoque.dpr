@@ -13,7 +13,8 @@ uses
   UfrCadProduto in 'Cadastros\UfrCadProduto.pas' {FrmCadProduto},
   UfrConsultaProduto in 'Consultas\UfrConsultaProduto.pas' {FrmConsProduto},
   UnFunc in 'UnFunc.pas',
-  UfrControlUser in 'UfrControlUser.pas' {FrmControlUser};
+  UfrControlUser in 'UfrControlUser.pas' {FrmControlUser},
+  UfrCadGeralProd in 'cadastros\UfrCadGeralProd.pas' {FrmCadGeralProd};
 
 {$R *.res}
 
