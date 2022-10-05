@@ -7,16 +7,13 @@ interface
 
 type
 
-Valida = class
-
-public
-  procedure validacamponum(Sender: TObject; var Key: Char);
+TValida = class
 
 private
-
-
-
-
+  Fvalor : char;
+public
+  function validanumero : string;
+  property valor :char  read Fvalor write Fvalor;
 
 end;
 
@@ -27,11 +24,22 @@ implementation
 
 { Valida }
 
-procedure Valida.validacamponum(Sender: TObject; var Key: Char);
+
+
+{ Valida }
+
+
+
+{ Valida }
+
+function TValida.validanumero : string;
 begin
-  if not (Key in['0'..'9',#8,#9,#13]) then
+  if not (Fvalor in['0'..'9',#8,#9,#13]) then
     raise Exception.Create('Esse campo aceita apenas númeross');
 end;
+
+{ Valida }
+
 
 
 

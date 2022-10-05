@@ -32,11 +32,11 @@ type
     QryLoginCPF: TLargeintField;
     QryLoginPSW: TIntegerField;
     QryLoginTIPFUNC: TStringField;
-    procedure EdtLoginKeyPress(Sender: TObject; var Key: Char);
     procedure EdtSenhaKeyPress(Sender: TObject; var Key: Char);
     procedure BtnCadLoginClick(Sender: TObject);
     procedure BtnLogarClick(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
+    procedure EdtLoginKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
   public
@@ -72,16 +72,23 @@ begin
   FrmLogin.Close;
 end;
 
+
 procedure TFrmLogin.EdtLoginKeyPress(Sender: TObject; var Key: Char);
+VAR
+ valida : TValida;
 begin
-  if not (Key in['0'..'9',#8,#9,#13]) then
-    raise Exception.Create('Esse campo aceita apenas númeross');
+  valida := TValida.Create;
+  valida.valor := Key;
+  valida.validanumero
 end;
 
 procedure TFrmLogin.EdtSenhaKeyPress(Sender: TObject; var Key: Char);
+VAR
+ valida : TValida;
 begin
-  if not (Key in['0'..'9',#8,#9,#13]) then
-    raise Exception.Create('Esse campo aceita apenas números');
+  valida := TValida.Create;
+  valida.valor := Key;
+  valida.validanumero
 end;
 
 

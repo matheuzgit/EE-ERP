@@ -19561,6 +19561,7 @@ object FrmLogin: TFrmLogin
         Height = 21
         Color = clGradientActiveCaption
         TabOrder = 0
+        OnKeyPress = EdtLoginKeyPress
       end
       object EdtSenha: TEdit
         Left = 0

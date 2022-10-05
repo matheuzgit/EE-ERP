@@ -1,0 +1,33 @@
+unit UnFunc;
+
+
+interface
+
+  uses System.SysUtils;
+
+type
+
+Valida = class
+
+public
+  
+
+private
+
+
+
+
+
+end;
+
+implementation
+
+{ Valida }
+
+
+{ Valida }
+
+
+
+
+end.
