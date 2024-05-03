@@ -12,10 +12,8 @@ object FrmLogin: TFrmLogin
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
-  OldCreateOrder = True
   Position = poDesigned
   WindowState = wsMaximized
-  PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel
     Left = 0
@@ -24,6 +22,8 @@ object FrmLogin: TFrmLogin
     Height = 848
     Align = alClient
     TabOrder = 0
+    ExplicitWidth = 1746
+    ExplicitHeight = 847
     object Image2: TImage
       Left = 303
       Top = 80
@@ -19528,6 +19528,7 @@ object FrmLogin: TFrmLogin
       Color = clGreen
       ParentBackground = False
       TabOrder = 0
+      ExplicitHeight = 845
       object Label1: TLabel
         Left = 10
         Top = 164
@@ -19611,7 +19612,7 @@ object FrmLogin: TFrmLogin
       end
       object BtnRedSenha: TButton
         Left = 97
-        Top = 324
+        Top = 332
         Width = 129
         Height = 26
         Caption = 'ESQUECI A  SENHA'
